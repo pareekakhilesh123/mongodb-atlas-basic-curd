@@ -28,7 +28,12 @@ app.post('/users', async (req, res) => {
   res.send(user );
 });
 */
-                  app.post('/users', async (req, res) => {
+app.get('/', (req, res) => {
+  res.send('server is running');
+});
+
+
+app.post('/users', async (req, res) => {
                     try {
                       const user = new User(req.body);
                       await user.save();
