@@ -3,10 +3,11 @@ const mongoose = require('mongoose');
 const UserSchema = new mongoose.Schema({
  name: {
    type: String,
-   required: true },
+  //  required: true 
+  },
   email: { 
     type: String, 
-    required: true, 
+    // required: true, 
     unique: true,
     match: /.+\@.+\..+/ 
   },
@@ -16,9 +17,14 @@ const UserSchema = new mongoose.Schema({
     },
     zipcode:{
       type:String ,
-      required : true, 
+      // required : true, 
       match : /^[0-9]{6}(?:-[0-9]{5})?$/ 
-    }
+    },
+      phone:{
+        type: String ,
+        // required : true,s 
+        match : /^[0-9]{10}(?:-[0-9]{5})?$/ 
+      },
 });
 
 module.exports = mongoose.model('User', UserSchema);

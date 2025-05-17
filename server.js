@@ -11,11 +11,7 @@ const User = require('./models/User');
 app.use(cors());
 app.use(bodyParser.json());
 
-mongoose.connect(process.env.MONGO_URI ,{
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-}
-)
+mongoose.connect("mongodb+srv://tempuser:temppassword@cluster0.mb5m1m4.mongodb.net/")
 .then(() => console.log('MongoDB connected'))
 .catch(err => console.log(err));
 
@@ -25,7 +21,7 @@ mongoose.connect(process.env.MONGO_URI ,{
 app.post('/users', async (req, res) => {
   const user = new User(req.body);
   await user.save();
-  res.send(user );
+  res.send(user );  
 });
 */
 app.get('/', (req, res) => {
@@ -137,6 +133,8 @@ app.post('/users', async (req, res) => {
                       res.status(500).send({ error: 'Server error' });
                     }
                   });
+
+                  
 
 // Server Start 5000 port Url: http:localhost:5000
 app.listen(PORT, () => {
